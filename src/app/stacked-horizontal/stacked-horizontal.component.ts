@@ -204,7 +204,6 @@ export class StackedHorizontalComponent implements AfterViewInit{
       });
 */
     bar.on("mouseover", function (d) {
-      debugger;
       var currentEl = d3.select(this);
       var fadeInSpeed = 120;
       d3.select("#recttooltip_" + mainDivName)

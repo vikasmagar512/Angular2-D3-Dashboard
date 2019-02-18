@@ -31,9 +31,10 @@
     position: absolute;
     margin-top: 50px;
     text-align: center;
-    background: red;
+    background: gray;
     text-decoration:underline;
     cursor:pointer;    
+    color:white;
 
 }
 .rotated {
@@ -43,5 +44,6 @@
 .caret{
     width:22px;
         margin: 73px 4px 7px -6px;
+
     
 }

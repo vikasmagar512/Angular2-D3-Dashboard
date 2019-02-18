@@ -3,28 +3,25 @@
         <div class="col-md-12 topHeader" >   {{side ? 'Receiving' : 'Ready To Ship'}}</div>
         <div class="row" >
             <div class="strip rotated" *ngIf="side"  style="position: absolute;left: 0;" (click)="switchSides()">
-            {{switchText}}
-             <img class="caret" src="../../assets/upFacingCaret.png" style="rotate: -90deg;">
-            
+                {{switchText}}
+                <img class="caret" src="../../assets/upFacingCaret.png" style="rotate: -90deg;">
             </div> 
             <div class="col-md-3 leftPanel">
                 <div class="row">
                     <div class="col-md-12 panelItem">
-                    <p>
-                        potential Revenue <span>$47 K</span>
-                    </p>
+                        <p>
+                            potential Revenue <span>$47 K</span>
+                        </p>
                     </div>
                     <div class="col-md-12 panelItem" >
                         <p>
                           Total Lines <span>230</span>
                         </p>
-                    
                     </div>
                     <div class="col-md-12 panelItem">
                         <p>
                           Total Units <span>1027</span>
-                         </p>
-                    
+                        </p>
                     </div>
                 </div>  
             </div>
@@ -44,11 +41,8 @@
                     </div>
                 </div>
                 <div class="strip rotated" *ngIf="!side" style="position: absolute;right: 0;" (click)="switchSides()">
-                <!-- Receiving -->
-            {{switchText}}
-                
-             <img class="caret" src="../../assets/upFacingCaret.png" style="rotate: 90deg;">
-                
+                    {{switchText}}
+                    <img class="caret" src="../../assets/upFacingCaret.png" style="rotate: 90deg;">
                 </div>
             </div>
         </div>
