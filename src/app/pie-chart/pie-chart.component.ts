@@ -327,44 +327,7 @@ export class PieChartComponent implements AfterViewInit {
                 .style('fill', '#F3ECEC')
                 .style('opacity', 0.75);
             });
-        // .on("mousemove", function (d) {
-        //     let mousePosition = d3.mouse(this);
-        //     let x = mousePosition[0] + this.width / 2;
-        //     let y = mousePosition[1] + this.height / 2 - this.tooltipMargin;
-
-        //     let text = d3.select('.tooltip text');
-        //     let bbox = text.node().getBBox();
-        //     if (x - bbox.width / 2 < 0) {
-        //         x = bbox.width / 2;
-        //     }
-        //     else if (this.width - x - bbox.width / 2 < 0) {
-        //         x = this.width - bbox.width / 2;
-        //     }
-
-        //     if (y - bbox.height / 2 < 0) {
-        //         y = bbox.height + this.tooltipMargin * 2;
-        //     }
-        //     else if (this.height - y - bbox.height / 2 < 0) {
-        //         y = this.height - bbox.height / 2;
-        //     }
-
-        //     d3.select('.tooltip')
-        //         .style("opacity", 1)
-        //         .attr('transform', `translate(${x}, ${y})`);
-        //     })
-        // .on("mouseout", function (d) {
-        //     d3.select(".piechart svg")
-        //         .style("cursor", "none")
-        //         .select(".tooltip").remove();
-        //     d3.selectAll('path')
-        //         .style("opacity", this.opacity);
-        //     })
-        // .on("touchstart", function (d) {
-        //     d3.select(".piechart svg")
-        //         .style("cursor", "none");
-        //     })
-        // .each(function (d, i) { this._current = i; });
-
+      
             const legend = d3.select('#containerPieChart').append('div')
                 .attr('class', 'legend')
                 // .style('margin-top', '50px');
@@ -401,20 +364,7 @@ export class PieChartComponent implements AfterViewInit {
                 .text(d => `${d['label']} (${d['value']})`);
 
             keys.exit().remove();
-            // });
-
-            // $('.piechart .legend>div').css({
-            //   'border-bottom': '1px solid',
-            //   'padding': '5px 0',
-            // })
-
-            // $('.piechart .legend').css({
-            //   'padding': '0 10px',
-            //   'font-size': '12px',
-            //   // 'margin-left': '9px',
-            // })
-
-            // $('.piechart svg').css('float', 'left');
+          
     }
 
 }

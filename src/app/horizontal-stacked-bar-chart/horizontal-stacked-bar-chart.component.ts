@@ -23,27 +23,7 @@ export class HorizontalStackedBarChartComponent implements AfterViewInit {
     var parseDate = d3.timeFormat("%b-%Y");
     var mainDiv = ".barchartHorizontal";
     var mainDivName = "charts";
-    // createChartLegend(mainDiv, group);
-    // var salesData = data
-    // var salesData = [{
-    //   "asset_type": "Coffee",
-    //   "working": 20,
-    //   "not_working": 40,
-    //   "service_required": 60,
-    // },
-    // // {
-    // //   "asset_type": "Printer",
-    // //   "working": 20,
-    // //   "not_working": 31,
-    // //   "service_required": 30,
-    // // },
-    // // {
-    // //   'asset_type': 'Mobile',
-    // //   'working': 60,
-    // //   'not_working': 20,
-    // //   'service_required': 70
-    // // },
-    // ];
+   
     let j = salesData
     let max = 0;
     j.map(item => {

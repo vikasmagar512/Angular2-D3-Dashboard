@@ -187,21 +187,7 @@ export class StackedVerticalComponent implements AfterViewInit {
       .attr("text-anchor", "start")
       .text(this.configObject.xLabel);
 
-    // svg.append("g")
-    //   .attr("transform", "translate(" + margin.left + ",0)")
-    //   .call(d3.axisLeft(y)
-    //     .tickSize(-width, 0, 0)
-    //     .tickFormat( function(d) { return d } )
-    //   )
-    //   .append("text")
-    //   .attr("transform", "rotate(-90)")
-    //   .attr("x", 0 - (height / 2))
-    //   .attr("y", 15 - (margin.left))
-    //   .attr("dy", "0.32em")
-    //   .attr("fill", "#000")
-    //   .attr("font-weight", "bold")
-    //   .attr("text-anchor", "middle")
-    //   .text(this.configObject.yLabel);
+  
     var z = d3.scaleOrdinal(d3.schemeCategory10);
   
     var maing = svg.append("g")

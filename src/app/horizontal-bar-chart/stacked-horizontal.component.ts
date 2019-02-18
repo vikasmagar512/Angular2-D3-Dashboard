@@ -159,50 +159,6 @@ export class StackedHorizontalComponent implements AfterViewInit{
         tooltip.style("opacity", 0);
       })
 
-    /*bar.on('mouseover', function(d) {
-      const gr = d3.select('.barchart svg')
-      // let g =this.svg
-        .style('cursor', 'pointer')
-        .append('g')
-        .attr('class', 'tooltip')
-        .style('opacity', 1);
-
-      gr.append('text')
-          .attr('class', 'name-text1')
-           .text((datum, index) => data[index].label)
-          .attr('text-anchor', 'middle');
-        const text = gr.select('.name-text1');
-        const bbox = text.node().getBBox();
-        const padding = 2;
-        gr.insert('rect', 'text')
-          .attr('x', bbox.x  )
-          .attr('y', bbox.y)
-          .attr('width', bbox.width + (padding * 2))
-          .attr('height', bbox.height + (padding * 2))
-          .style('fill', '#F3ECEC')
-          .style('opacity', 0.75);
-      })*/
-
-/*
-      bar.on('mouseover', function(d) {
-        tooltip
-          .style('left', d3.event.pageX - 50 + 'px')
-          .style('top', d3.event.pageY - 70 + 'px')
-          .style('display', 'inline-block')
-            .style("opacity", 1)
-          .html((d.label) + '<br>' + '£' + (d.value));*/
-        //
-        // tooltip
-        //   .html((d.label) + '<br>' + '£' + (d.value))
-        //   .style("opacity", 1)
-        //   .style("left", (parseInt(d3.select(this).attr("cx")) + document.getElementById("barchartSvgId").offsetLeft) + "px")
-        //   .style("top", (parseInt(d3.select(this).attr("cy")) + document.getElementById("barchartSvgId").offsetTop) + "px");
-      // })
-/*
-      .on('mouseout', function(d) {
-        tooltip.style("opacity", 0);
-      });
-*/
     bar.on("mouseover", function (d) {
       var currentEl = d3.select(this);
       var fadeInSpeed = 120;

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { DataService } from './data.service';
 import { FormsModule } from '@angular/forms';
-import { StackedHorizontalComponent } from './stacked-horizontal/stacked-horizontal.component';
+import { StackedHorizontalComponent } from './horizontal-bar-chart/stacked-horizontal.component';
 import { StackedVerticalComponent } from './stacked-vertical/stacked-vertical.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { HorizontalStackedBarChartComponent } from './horizontal-stacked-bar-chart/horizontal-stacked-bar-chart.component';
