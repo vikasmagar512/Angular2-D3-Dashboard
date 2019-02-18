@@ -1,0 +1,8 @@
+
+<div class="barchartPopUpVertical" style="display: inline-block;margin-top: 15px;">
+        <div style=" margin: 0 auto;
+        display: flex;
+        justify-content: center;">
+                <span class="labelSpan" [ngClass]="{'activeSpan': label.label==activeLabel.label}" *ngFor="let label of labels" (click)="selectLabel(label)">{{label.showText}}</span>
+            </div>
+</div>

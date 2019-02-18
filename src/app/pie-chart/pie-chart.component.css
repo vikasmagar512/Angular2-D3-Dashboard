@@ -1,0 +1,8 @@
+.name-text{
+    color: black
+}
+.key{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

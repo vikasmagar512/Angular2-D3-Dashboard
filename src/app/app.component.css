@@ -1,0 +1,27 @@
+.topHeader{
+    text-decoration:underline;
+    font-size:20px;
+    color:blue;
+}
+.leftPanel{
+    padding: 5px; 
+    font-size:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: gray;
+    color: white;
+}
+.panelItem{
+    /*height: 20px;*/
+    padding: 5px 8px;
+    font-size: 20px;
+    margin: 30px 5px;
+}
+.panelItem p{
+    text-align: center;
+}
+.panelItem p > span{
+    font-size: 30px;
+    color:dodgerblue;
+}

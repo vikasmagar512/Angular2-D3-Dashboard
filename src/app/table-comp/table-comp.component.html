@@ -1,0 +1,34 @@
+
+<div class="tableEncloser">
+  <h5>Receiving</h5>
+  <div class="table-responsive table-border ">
+      <div class="dataTables_filter" style="float:right;margin-right:55px;">
+        <!-- <label>Search:<input type="search" class="" placeholder="" aria-controls="DataTables_Table_0"></label> -->
+        <button type="button" class="btn btn-primary" (click)="exporttoCSV()">Export to Excel</button>
+        
+      </div>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+      <thead>
+      <tr>
+        <td *ngFor="let col of columns" class="text-center" >
+            {{col.display}}
+        </td>
+      </tr>
+      </thead>
+      <tbody class="dt-center">
+      <tr *ngFor="let person of data">
+          <td *ngFor="let col of columns" class="text-center">
+            <ng-container *ngIf="col.variable !== 'chart'">
+              {{person[col.variable]}}
+            </ng-container>
+             <ng-container *ngIf="col.variable === 'chart'">
+              <app-horizontal-stacked-bar-chart [salesData]="person.chart"></app-horizontal-stacked-bar-chart>          
+            </ng-container> 
+            
+          </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

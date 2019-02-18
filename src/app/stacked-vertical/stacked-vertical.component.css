@@ -1,0 +1,21 @@
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+}
+
+path.domain {
+  stroke: none;
+}
+
+.y .tick line {
+  stroke: #ddd;
+}
+.labelSpan{
+  text-decoration: underline;
+  margin-right: 15px;
+ cursor: pointer;
+}
+.activeSpan{
+  color: blue;
+}

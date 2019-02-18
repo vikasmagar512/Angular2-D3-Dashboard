@@ -1,0 +1,8 @@
+.tableEncloser{
+  height: 350px;
+  max-height: 350px;
+  min-height: 350px;
+  overflow-y: scroll;
+  padding: 0px 25px;
+}
+
