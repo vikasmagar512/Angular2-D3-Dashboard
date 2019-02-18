@@ -10,12 +10,14 @@ import { IData } from './idata';
 })
 export class AppComponent {
   data: IData[];
-  side:true;
+  side:Boolean = false;
 	newLabel: string;
 	newValue: number;
-
+  switchText;
+  
 	constructor(private dataService: DataService) { 
-		this.name = `Angular!` 		
+		this.name = `Angular!` 
+    this.switchText = !this.side ? 'Receiving' : 'Ready To Ship'
 	}
 
 	ngOnInit() {
@@ -23,7 +25,10 @@ export class AppComponent {
 			this.data = data;
 		});
 	}
-
+  switchSides(){
+    this.side =!this.side; 
+    this.switchText = !this.side ? 'Receiving' : 'Ready To Ship'
+  }
 	addData(): void {
 		let newData = {
 			label: this.newLabel,

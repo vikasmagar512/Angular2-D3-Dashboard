@@ -25,3 +25,23 @@
     font-size: 30px;
     color:dodgerblue;
 }
+.strip{
+    height: 300px;
+    width: 30px;
+    position: absolute;
+    margin-top: 50px;
+    text-align: center;
+    background: red;
+    text-decoration:underline;
+    cursor:pointer;    
+
+}
+.rotated {
+    writing-mode: tb-rl;
+    transform: rotate(-180deg);
+}
+.caret{
+    width:22px;
+        margin: 73px 4px 7px -6px;
+    
+}

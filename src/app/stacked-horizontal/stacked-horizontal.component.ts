@@ -40,6 +40,9 @@ export class StackedHorizontalComponent implements AfterViewInit{
     const xLabel = 'Value';
     const yValue = d => d.label;
     const yLabel = 'Label';
+    var mainDiv = ".barchart";
+    var mainDivName = "charts";
+  
     // const margin = { left: 150, right: 30, top: 5, bottom: 75 };
 
     const barchartSvg = d3.select('.barchart svg');
@@ -134,6 +137,8 @@ export class StackedHorizontalComponent implements AfterViewInit{
         .attr('height', d => yScale.bandwidth())
         .attr('fill', '#ffd500')
 
+
+
       .on("mousemove", function(d){
         tooltip.style("left", d3.event.pageX+10+"px")
         .style("top", d3.event.pageY-25+"px")
@@ -198,6 +203,163 @@ export class StackedHorizontalComponent implements AfterViewInit{
         tooltip.style("opacity", 0);
       });
 */
+    bar.on("mouseover", function (d) {
+      debugger;
+      var currentEl = d3.select(this);
+      var fadeInSpeed = 120;
+      d3.select("#recttooltip_" + mainDivName)
+        .transition()
+        .duration(fadeInSpeed)
+        .style("opacity", function () {
+          return 1;
+        })
+
+      d3.select("#recttooltip_" + mainDivName).attr("transform", function (d) {
+        var mouseCoords = d3.mouse(this.parentNode);
+        var xCo = 0;
+        if (mouseCoords[0] + 10 >= width * 0.80) {
+          xCo = mouseCoords[0] - parseFloat(d3.selectAll("#recttooltipRect_" + mainDivName)
+            .attr("width"));
+        } else {
+          xCo = mouseCoords[0] + 10;
+        }
+        var x = xCo;
+        var yCo = 0;
+        if (mouseCoords[0] + 10 >= width * 0.80) {
+          yCo = mouseCoords[1] + 10;
+        } else {
+          yCo = mouseCoords[1];
+        }
+        var x = xCo;
+        var y = yCo;
+        return "translate(" + x + "," + y + ")";
+      });
+      //CBT:calculate tooltips text
+      // var tooltipData = JSON.parse(currentEl.attr("data"));
+      var tooltipsText = "";
+
+      d3.selectAll("#recttooltipText_" + mainDivName).text("");
+      var yPos = 0;
+
+      d3.selectAll("#recttooltipText_" + mainDivName)
+        .append("tspan")
+        .attr("x", 0)
+        .attr("y", yPos * 20)
+        .attr("dy", "1.9em")
+        .style('margin-bottom', '10px')
+        .text(d.label + ":  " + d.value);
+
+      yPos = yPos + 1;
+
+      // d3.selectAll("#recttooltipText_" + mainDivName)
+      //   .append("tspan")
+      //   .attr("x", 0).attr("y", yPos * 20)
+      //   .attr("dy", "1.9em")
+      //   .text("Total" + ":  " + tooltipData.total);
+
+      // CBT:calculate width of the text based on characters
+
+      var dims = helpers.getDimensions("recttooltipText_" + mainDivName);
+
+      d3.selectAll("#recttooltipText_" + mainDivName + " tspan")
+        .attr("x", dims.w + 4);
+
+      d3.selectAll("#recttooltipRect_" + mainDivName)
+        .attr("width", dims.w + 10)
+        .attr("height", dims.h + 20);
+
+    });
+
+    bar.on("mousemove", function () {
+      var currentEl = d3.select(this);
+      currentEl.attr("r", 7);
+      d3.selectAll("#recttooltip_" + mainDivName)
+        .attr("transform", function (d) {
+          var mouseCoords = d3.mouse(this.parentNode);
+          var xCo = 0;
+          if (mouseCoords[0] + 10 >= width * 0.60) {
+            xCo = mouseCoords[0] - parseFloat(d3.selectAll("#recttooltipRect_" + mainDivName)
+              .attr("width"));
+          } else {
+            xCo = mouseCoords[0] + 20;
+          }
+          var x = xCo;
+          var yCo = 0;
+          if (mouseCoords[0] + 10 >= width * 0.60) {
+            yCo = mouseCoords[1] - 10;
+          } else {
+            yCo = mouseCoords[1] - 10;
+          }
+          var x = xCo;
+          var y = yCo;
+          return "translate(" + x + "," + y + ")";
+        });
+    });
+    var rectTooltipg = d3.select('.barchart svg').append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+      .attr("id", "recttooltip_" + mainDivName)
+      .attr("style", "opacity:0")
+      .attr("transform", "translate(-500,-500)");
+
+    rectTooltipg.append("rect")
+      .attr("id", "recttooltipRect_" + mainDivName)
+      .attr("x", 0)
+      .attr("width", 120)
+      .attr("height", 40)
+      .attr("opacity", 0.9)
+      .style("fill", "#fff");
+
+    rectTooltipg
+      .append("text")
+      .attr("id", "recttooltipText_" + mainDivName)
+      .attr("x", 30)
+      .attr("y", 15)
+      .attr("fill", function () {
+        return "#000"
+      })
+      .style("font-size", function (d) {
+        return 12;
+      })
+      .style("font-family", function (d) {
+        return "arial";
+      })
+      .text(function (d, i) {
+        return "";
+      });
+
+    var helpers = {
+      getDimensions: function (id) {
+        var el = document.getElementById(id);
+        var w = 0,
+          h = 0;
+        if (el) {
+          var dimensions = (el as any).getBBox();
+          w = dimensions.width;
+          h = dimensions.height;
+        } else {
+          console.log("error: getDimensions() " + id + " not found.");
+        }
+        return {
+          w: w,
+          h: h
+        };
+      }
+    };
+    bar.on("mouseout", function () {
+      var currentEl = d3.select(this);
+      d3.select("#recttooltip_" + mainDivName)
+        .style("opacity", function () {
+          return 0;
+        })
+        .attr("transform", function (d, i) {
+          // klutzy, but it accounts for tooltip padding which could push it onscreen
+          var x = -500;
+          var y = -500;
+          return "translate(" + x + "," + y + ")";
+        });
+    });
 
     xAxisG.call(xAxis);
     yAxisG.call(yAxis);
